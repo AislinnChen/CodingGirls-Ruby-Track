@@ -1,0 +1,94 @@
+
+<body>
+
+<style type="text/css">
+
+#navbar {
+width:50%;
+height:40px;
+background-color:#FFF;
+}
+
+#navbar ul {
+width:80%;
+margin:0 auto 0 auto;
+}
+
+#navbar ul li {
+float:left;
+color:#CC0000;
+padding:0 20px 0 20px;
+border-right:1px solid #FFF;
+border-left:1px solid #FFF;
+height:40px;
+list-style:none;
+display:block;
+line-height:40px;
+text-align:center;
+cursor:pointer;
+}
+
+#navbar ul li:hover {
+background-color:#CCC;
+}
+
+</style>
+    <div id="navbar">
+
+        <ul>
+            <li><a href="/aboutus.html">About Us</a></li>
+            <li>Our Committee</li>
+            <li><a href="/events">Events</a></li>
+            <li>Sponsors</li>
+           
+        </ul>
+        
+            
+
+
+    </div>
+
+</body>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Our Past Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Session no</th>
+      <th>Event name</th>
+      <th>Date</th>
+      <th>Coach name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= event.session_no %></td>
+        <td><%= event.event_name %></td>
+        <td><%= event.date %></td>
+        <td><%= event.coach_name %></td>
+      
+       <% 
+=begin %>
+       
+       <td><%= link_to 'Show', event %></td>
+        <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+       
+       <% 
+=end %>
+       
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

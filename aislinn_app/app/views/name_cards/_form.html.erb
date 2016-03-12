@@ -1,0 +1,33 @@
+<%= form_for(@name_card) do |f| %>
+  <% if @name_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@name_card.errors.count, "error") %> prohibited this name_card from being saved:</h2>
+
+      <ul>
+      <% @name_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :given_name %><br>
+    <%= f.text_field :given_name %>
+  </div>
+  <div class="field">
+    <%= f.label :fax %><br>
+    <%= f.text_field :fax %>
+  </div>
+  <div class="field">
+    <%= f.label :cell_phone %><br>
+    <%= f.text_field :cell_phone %>
+  </div>
+   <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
